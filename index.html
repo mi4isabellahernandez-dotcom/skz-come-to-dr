@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SKZ Come to Dominican Republic 🇩🇴</title>
+
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f6f6f6;color:#111}
+nav{position:sticky;top:0;background:#080808;color:white;padding:18px 7%;z-index:10}
+nav b{font-size:18px}
+nav a{color:white;text-decoration:none;margin-left:15px;font-size:13px}
+.hero{min-height:90vh;padding:80px 8%;display:flex;align-items:center;color:white;background:linear-gradient(135deg,#050505,#171717,#a00020)}
+.flag{font-size:45px}
+h1{font-size:clamp(45px,9vw,90px);line-height:.9;margin:15px 0}
+.hero p{font-size:19px;max-width:650px;line-height:1.6;color:#eee}
+.btn{display:inline-block;background:#e5092f;color:white;padding:15px 22px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:12px;border:0}
+section{padding:70px 8%;max-width:1100px;margin:auto}
+.dark{max-width:none;background:#090909;color:white}
+.dark>div{max-width:1100px;margin:auto}
+h2{font-size:36px}
+.lead{font-size:18px;line-height:1.7;color:#555}
+.dark .lead{color:#ddd}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card,form,.letter{background:white;border-radius:18px;padding:25px;margin-top:20px}
+.card{box-shadow:0 5px 20px #0001}
+.number{font-size:50px;font-weight:bold;color:#e5092f}
+label{display:block;font-weight:bold;margin-top:18px}
+input,select,textarea{width:100%;padding:13px;margin-top:7px;border:1px solid #ccc;border-radius:9px;font:inherit}
+textarea{min-height:100px}
+.letter{color:#111;border-left:5px solid #e5092f;line-height:1.7}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.photo{height:170px;border-radius:15px;background:linear-gradient(135deg,#111,#e5092f);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;text-align:center}
+footer{background:#080808;color:#aaa;text-align:center;padding:35px}
+@media(max-width:650px){
+nav a{display:none}
+.photos{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<b>SKZ × 🇩🇴</b>
+<span style="float:right">
+<a href="#about">Proyecto</a>
+<a href="#support">Apoyar</a>
+<a href="#letter">Carta</a>
+</span>
+</nav>
+
+<header class="hero">
+<div>
+<div class="flag">🇩🇴</div>
+<h1>STRAY KIDS,<br>COME TO DR.</h1>
+<p>
+Un proyecto independiente de STAYs dominicanas para demostrar
+que existe una comunidad que estaría feliz de recibir a Stray Kids
+en República Dominicana.
+</p>
+<a class="btn" href="#support">APOYAR LA CAMPAÑA</a>
+<a class="btn" style="background:white;color:#111" href="#about">CONOCER EL PROYECTO</a>
+</div>
+</header>
+
+<section id="about">
+<h2>🇩🇴 ¿Quiénes somos?</h2>
+<p class="lead">
+Somos un grupo de STAYs dominicanas que creó esta campaña para
+mostrar el interés de nuestra comunidad en que República Dominicana
+sea considerada para una futura visita de Stray Kids.
+</p>
+
+<div class="grid">
+<div class="card"><h3>❤️ Fans</h3><p>Una campaña creada por fans y para fans.</p></div>
+<div class="card"><h3>🇩🇴 RD</h3><p>Queremos visibilizar a la comunidad STAY dominicana.</p></div>
+<div class="card"><h3>🌎 Un sueño</h3><p>Mostrar nuestro apoyo y nuestro deseo de recibirlos algún día.</p></div>
+</div>
+</section>
+
+<section class="dark" id="support">
+<div>
+<h2>✍️ Apoya la campaña</h2>
+<p class="lead">Cada apoyo nos ayuda a demostrar el interés de STAYs dominicanas.</p>
+
+<form onsubmit="apoyar(event)">
+<label>Nickname</label>
+<input id="nick" placeholder="Ej. MiaStay" required>
+
+<label>Provincia</label>
+<select id="prov" required>
+<option value="">Selecciona tu provincia</option>
+<option>Santo Domingo</option>
+<option>Distrito Nacional</option>
+<option>Santiago</option>
+<option>La Vega</option>
+<option>Puerto Plata</option>
+<option>San Cristóbal</option>
+<option>La Romana</option>
+<option>San Pedro de Macorís</option>
+<option>Otra</option>
+</select>
+
+<label>¿Te gustaría asistir a un concierto de Stray Kids en RD?</label>
+<select id="concert">
+<option>Sí ❤️</option>
+<option>Me gustaría 🇩🇴</option>
+</select>
+
+<label>Mensaje (opcional)</label>
+<textarea id="message" placeholder="Déjanos un mensaje..."></textarea>
+
+<button class="btn" type="submit">ENVIAR MI APOYO 🇩🇴</button>
+
+<p id="thanks" style="display:none;color:green;font-weight:bold">
+¡Gracias por apoyar la campaña! 🇩🇴❤️
+</p>
+</form>
+</div>
+</section>
+
+<section>
+<h2>📊 Nuestra comunidad</h2>
+<div class="grid">
+<div class="card">
+<div class="number" id="counter">0</div>
+<strong>apoyos registrados</strong>
+</div>
+<div class="card">
+<div class="number">🇩🇴</div>
+<strong>Dominican STAY</strong>
+</div>
+<div class="card">
+<div class="number">❤️</div>
+<strong>One dream</strong>
+</div>
+</div>
+</section>
+
+<section class="dark" id="letter">
+<div>
+<h2>💌 Carta para JYP Entertainment</h2>
+<div class="letter">
+<strong>Dear JYP Entertainment,</strong>
+
+<p>
+We are Dominican STAYs writing from the Dominican Republic.
+Stray Kids have fans here who would be incredibly happy to
+welcome them to our country for a future concert or tour.
+</p>
+
+<p>
+Through this campaign, we want to show the interest and
+enthusiasm of our local community and respectfully ask that
+the Dominican Republic be considered for future Stray Kids activities.
+</p>
+
+<strong>From Dominican STAYs, with love. 🇩🇴❤️</strong>
+</div>
+</div>
+</section>
+
+<section>
+<h2>📸 Nuestra comunidad</h2>
+<p class="lead">
+Aquí pondremos fotos de nuestras actividades y proyectos.
+</p>
+
+<div class="photos">
+<div class="photo">ACTIVIDAD STAY 🇩🇴</div>
+<div class="photo">PROYECTO DE FANS</div>
+<div class="photo">DOMINICAN STAY</div>
+</div>
+</section>
+
+<section>
+<h2>📢 Comparte la campaña</h2>
+<div class="grid">
+<div class="card"><h3>#SKZComeToDR</h3></div>
+<div class="card"><h3>#StrayKidsInDR</h3></div>
+<div class="card"><h3>🇩🇴 Dominican STAY</h3></div>
+</div>
+</section>
+
+<footer>
+<strong>SKZ COME TO DOMINICAN REPUBLIC 🇩🇴</strong>
+<br><br>
+Fan project • Independent • Not affiliated with JYP Entertainment or Stray Kids
+</footer>
+
+<script>
+let apoyos=0;
+
+function apoyar(e){
+e.preventDefault();
+apoyos++;
+document.getElementById("counter").innerText=apoyos;
+document.getElementById("thanks").style.display="block";
+e.target.reset();
+}
+</script>
+
+</body>
+</html>
